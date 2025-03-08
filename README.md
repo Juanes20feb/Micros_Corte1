@@ -17,6 +17,9 @@ Para poder visualizar el codigo [Haz clic aquí](https://github.com/Juanes20feb/
 #### Explicacion palabras reservadas
 
 `#include <xc.h>`: Es una librería específica para los microcontroladores PIC. Esta librería contiene los registros y configuraciones necesarias para manejar los periféricos del PIC18F45K22.
+
 `#define _XTAL_FREQ 4000000`: Define la frecuencia del oscilador en 4 MHz. Es necesaria para el uso de la función `__delay_ms()`.
+
 `unsigned char`: Palabra clave para declarar una variable de 8 bits.
+
 

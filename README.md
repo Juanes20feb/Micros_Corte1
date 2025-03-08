@@ -15,4 +15,6 @@ La Unidad Aritmético-Lógica (ALU) es un componente fundamental dentro de los s
 ![Tabla de operaciones](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/WhatsApp%20Image%202025-03-08%20at%2012.04.18%20AM.jpeg)
 
 ### MONTAJE Y DIAGRAMA
-![Tabla de operaciones](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/pick.png)
+![Diagrama](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/pick.png)
+
+En la Alu

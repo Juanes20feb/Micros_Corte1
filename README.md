@@ -18,21 +18,34 @@ La Unidad Aritmético-Lógica (ALU) es un componente fundamental dentro de los s
 ![Diagrama](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/imagen_2025-03-08_005011209.png)
 
 ##### Microcontrolador PIC18LF4XK22: 
-Es el elemento principal del circuito, encargado de procesar datos y ejecutar instrucciones.
-##### PICkit 3:  
-Se usa para programar el microcontrolador y cargar el código de la aplicación.
-##### Cristal de 4 MHz con condensadores de 33pF:
-Se utiliza para proporcionar una señal de reloj estable al microcontrolador.
-##### Resistencia de 2kΩ, condensador de 100nF y pulsador en el MCLR: 
- Se implementa un circuito de reset para evitar que el PIC se reinicie accidentalmente.
- ##### Dip Switch: 
- se usan para asignar el numero de operacion 1 , 2 y la operacion.
- ##### pulador que esta en el Rb4:
- este ayuda guardar el valor asignado en el dip switch
- ##### Leds y resistencias:
- Indicadores visuales que representan el estado del sistema o los resultados de alguna de las operaciones.
 
- ### MONTAJE
- ![Diagrama](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/imagen_2025-03-08_010035213.png)
+Es el elemento principal del circuito, encargado de procesar datos y ejecutar instrucciones.
+
+##### PICkit 3:  
+
+Se usa para programar el microcontrolador y cargar el código de la aplicación.
+
+##### Cristal de 4 MHz con condensadores de 33pF:
+
+Se utiliza para proporcionar una señal de reloj estable al microcontrolador.
+
+##### Resistencia de 2kΩ, condensador de 100nF y pulsador en el MCLR: 
+
+Se implementa un circuito de reset para evitar que el PIC se reinicie accidentalmente.
+
+##### Dip Switch: 
+Se usan para asignar el numero de operacion 1 , 2 y la operacion.
+
+##### pulador que esta en el Rb4:
+
+Este ayuda guardar el valor asignado en el dip switch.
+
+##### Leds y resistencias:
+
+Indicadores visuales que representan el estado del sistema o los resultados de alguna de las operaciones.
+
+### MONTAJE
+
+![Diagrama](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/imagen_2025-03-08_010035213.png)
 
  

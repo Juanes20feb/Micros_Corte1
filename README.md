@@ -29,7 +29,7 @@ Se utiliza para proporcionar una señal de reloj estable al microcontrolador.
  se usan para asignar el numero de operacion 1 , 2 y la operacion.
  ##### pulador que esta en el Rb4:
  este ayuda guardar el valor asignado en el dip switch
- ##### LEDs y resistencias:
+ ##### Leds y resistencias:
  Indicadores visuales que representan el estado del sistema o los resultados de alguna de las operaciones.
 
  ### MONTAJE

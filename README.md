@@ -3,7 +3,10 @@
 
 ### INTRODUCCION
 
-En este laboratorio se llevó a cabo la implementación de una Unidad Aritmético-Lógica (ALU) utilizando el microcontrolador PIC18F45K22. La ALU es un componente fundamental en los sistemas digitales, ya que permite realizar operaciones matemáticas y lógicas esenciales para el procesamiento de datos.
+En este proyecto, desarrollamos un circuito basado en el microcontrolador **PIC18F4XK22**, montado en una **protoboard** para facilitar su prueba y experimentación. El objetivo principal es diseñar una base de hardware que permita implementar una **Unidad Aritmético-Lógica (ALU)**, aprovechando las capacidades del microcontrolador para realizar operaciones aritméticas y lógicas.  
+
+Para el funcionamiento del PIC, utilizamos un **oscilador de cristal de 4 MHz**, que proporciona la señal de reloj necesaria. Además, incluimos un **programador PICkit**, que nos permite cargar el código en el microcontrolador. El circuito también cuenta con resistencias, capacitores y diodos LED, los cuales nos ayudan a verificar su correcto funcionamiento.  
+
 
 ### OBJETIVO GENERAL
 

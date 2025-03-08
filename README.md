@@ -14,7 +14,21 @@ Desarrollar una ALU en el microcontrolador PIC18F45K22 para ejecutar operaciones
 La Unidad Aritmético-Lógica (ALU) es un componente fundamental dentro de los sistemas digitales y microprocesadores. Su función principal es ejecutar operaciones matemáticas y lógicas sobre los datos proporcionados por la memoria o los registros internos de un procesador. En el caso de una calculadora de 4 bits, la ALU es responsable de realizar operaciones como suma, resta, AND, OR y XOR, manejando operandos de 4 bits, en la siguiente tabla se reflejara las combinaciones para cada operacion:
 ![Tabla de operaciones](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/WhatsApp%20Image%202025-03-08%20at%2012.04.18%20AM.jpeg)
 
-### MONTAJE Y DIAGRAMA
+### DIAGRAMA
 ![Diagrama](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/pick.png)
 
-En la Alu
+# Microcontrolador PIC18LF4XK22: 
+Es el elemento principal del circuito, encargado de procesar datos y ejecutar instrucciones.
+# PICkit 3:  
+Se usa para programar el microcontrolador y cargar el código de la aplicación.
+# Cristal de 4 MHz con condensadores de 33pF:
+Se utiliza para proporcionar una señal de reloj estable al microcontrolador.
+# Resistencia de 2kΩ, condensador de 100nF y pulsador en el MCLR: 
+ Se implementa un circuito de reset para evitar que el PIC se reinicie accidentalmente.
+ # Dip Switch: 
+ se usan para asignar el numero de operacion 1 , 2 y la operacion.
+ # pulador que esta en el Rb4:
+ este ayuda guardar el valor asignado en el dip switch
+ 
+ 
+ 

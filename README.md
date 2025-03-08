@@ -12,4 +12,4 @@ Desarrollar una ALU en el microcontrolador PIC18F45K22 para ejecutar operaciones
 * Conectar correctamente las conexiones entre el PICkit 3 y el microcontrolador, asegurando una alimentación adecuada, una correcta configuración de los pines y del entorno de programación para evitar errores en la comunicación y ejecución del código.
 ### Codigo
 
-Para poder visualizar el codigo da clic [Aqui]([https://github.com/Juanes20feb/Micros_Corte1/blob/main/script.py]
+Para poder visualizar el codigo da clic [Aqui]([https://github.com/Juanes20feb/Micros_Corte1/blob/main/script.py])

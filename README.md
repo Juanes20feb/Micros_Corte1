@@ -33,6 +33,6 @@ Se utiliza para proporcionar una señal de reloj estable al microcontrolador.
  Indicadores visuales que representan el estado del sistema o los resultados de alguna de las operaciones.
 
  ### MONTAJE
- ![Diagrama](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/imagen_2025-03-08_005011209.png)
+ ![Diagrama](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/imagen_2025-03-08_010035213.png)
 
  

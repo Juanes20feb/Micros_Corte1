@@ -57,7 +57,7 @@ Indicadores visuales que representan el estado del sistema o los resultados de a
 
  ### CODIGO
 
-Para poder visualizar el codigo [Haz clic aquí](https://github.com/Juanes20feb/Micros_Corte1/blob/main/script.py)
+Para poder visualizar el codigo [Haz clic aquí](https://github.com/Juanes20feb/Micros_Corte1/blob/Shirley/script.c)
 
 #### EXPLICACIÓN PALABRAS RESERVADAS
 

@@ -1,5 +1,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19351781&assignment_repo_type=AssignmentRepo)
-# Lab03: Generación de señal PWM con PIC18F45K22
+# Proyecto final 
+
+
  
 
 ## Intregrantes
@@ -13,11 +15,28 @@
 
 ## Documentación
 
+## Palabras clave: 
+LM35, PIC18F45K22, LCD, buzzer, temperatura, alarma, simulación, prototipado.
+
 ### Introducción
 
-En este laboratorio, se configurará el microcontrolador PIC18F45K22 para generar una señal PWM utilizando el módulo CCP1, funcionando a 64 MHz con el oscilador interno y PLL habilitados. El Timer2 se utilizará para establecer el período PWM y el Timer0 se utilizará para generar una interrupción que permita la modificación automática del ciclo de trabajo. Los resultados se observarán en un osciloscopio para verificar el control dinámico del PWM.
+Este proyecto presenta el diseño e implementación de un sistema de monitoreo de temperatura basado en el microcontrolador PIC18F45K22. Se emplea un sensor analógico LM35, una pantalla LCD 16x2, un buzzer y un LED como alerta sonora y visual. El objetivo es activar una alarma cuando la temperatura supere los 40 °C. El sistema se desarrolló inicialmente en Proteus para pruebas de simulación y posteriormente fue implementado en una protoboard. Aunque no ofrece medición en tiempo real de alta precisión, cumple una función educativa y prototípica.
 
-### Descripción
+
+## Objetivo general
+
+Diseñar e implementar un sistema de advertencia de temperatura de bajo costo, basado en un microcontrolador PIC18F45K22 y un sensor LM35, que permita visualizar el valor de temperatura en una pantalla LCD y activar una alarma y un led cuando se supere un umbral definido (40 °C).
+
+## Objetivos especificos
+
+-Desarrollar la simulación del circuito en Proteus, integrando el sensor LM35, el microcontrolador PIC18F45K22, una pantalla LCD 16x2, un buzzer y un LED.
+
+-Programar el microcontrolador para adquirir la señal analógica del LM35 mediante el módulo ADC, convertirla a temperatura en grados Celsius y mostrarla en la pantalla LCD.
+
+-Establecer una lógica de control que active el buzzer y el LED cuando la temperatura supere los 40 °C.
+
+-Implementar físicamente el circuito en protoboard para verificar su funcionamiento práctico y compararlo con la simulación.
+
 
 #### Visualización del código - Parte 1
 

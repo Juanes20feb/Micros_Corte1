@@ -62,6 +62,7 @@ Tras validar el sistema en simulación, se construyó el circuito en una protobo
 Una LCD 16x2 externa muestra la temperatura en °C, con un potenciómetro para ajustar el contraste. Un buzzer y un LED rojo, conectados a una salida digital, se activan si la temperatura supera los 40 °C.
 
 
+
 #### Visualización del código - Parte 1
 
 * Si deseas visualizar el código del programa principal [Haz clic aquí](main_parte1.c)

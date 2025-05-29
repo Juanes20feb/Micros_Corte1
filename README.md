@@ -1,94 +1,324 @@
-# Micros_Corte1
-## Integrantes: Juan Esteban Monroy Moya - 136851 / Alison Daniela Vera Rocha - 131212 / Shirley Bohorquez Gil - 131164
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19351781&assignment_repo_type=AssignmentRepo)
+# Lab03: Generación de señal PWM con PIC18F45K22
+ 
 
-### INTRODUCCION
+## Intregrantes
 
-En este laboratorio se llevó a cabo la implementación de una Unidad Aritmético-Lógica (ALU) utilizando el microcontrolador PIC18F45K22. La ALU es un componente fundamental en los sistemas digitales, ya que permite realizar operaciones matemáticas y lógicas esenciales para el procesamiento de datos.
+[Juan Esteban Monroy Moya - 136851](https://github.com/Juanes20feb)
 
-### OBJETIVO GENERAL
+[Shirley Katherin Bohorquez Gil - 131164](https://github.com/Shirleyb0440)
 
-Desarrollar una ALU en el microcontrolador PIC18F45K22 para ejecutar operaciones de suma, resta, multiplicación, división, AND y OR. La implementación se realizará en lenguaje C dentro del entorno MPLAB X, asegurando su correcto funcionamiento mediante pruebas prácticas.
+[Alison Daniela Vera Rocha - 131212](https://github.com/Alisondaniela-bot)
 
-### OBJETIVOS ESPECIFICOS
 
-* Escribir y programar el código de la ALU en lenguaje C utilizando MPLAB X y el compilador XC8, garantizando que realice correctamente las operaciones aritméticas y lógicas especificadas.
-* Aprender a transferir el código en el microcontrolador PIC18F45K22 mediante el programador PICkit 3.
-* Conectar correctamente las conexiones entre el PICkit 3 y el microcontrolador, asegurando una alimentación adecuada, una correcta configuración de los pines y del entorno de programación para evitar errores en la comunicación y ejecución del código.
-### MARCO TEORICO
+## Documentación
 
-La Unidad Aritmético-Lógica (ALU) es un componente fundamental dentro de los sistemas digitales y microprocesadores. Su función principal es ejecutar operaciones matemáticas y lógicas sobre los datos proporcionados por la memoria o los registros internos de un procesador. En el caso de una calculadora de 4 bits, la ALU es responsable de realizar operaciones como suma, resta, AND, OR y XOR, manejando operandos de 4 bits, en la siguiente tabla se reflejara las combinaciones para cada operacion:
+### Introducción
 
-![Tabla de operaciones](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/WhatsApp%20Image%202025-03-08%20at%2012.04.18%20AM.jpeg)
+En este laboratorio, se configurará el microcontrolador PIC18F45K22 para generar una señal PWM utilizando el módulo CCP1, funcionando a 64 MHz con el oscilador interno y PLL habilitados. El Timer2 se utilizará para establecer el período PWM y el Timer0 se utilizará para generar una interrupción que permita la modificación automática del ciclo de trabajo. Los resultados se observarán en un osciloscopio para verificar el control dinámico del PWM.
 
-### DIAGRAMA
+### Descripción
 
-![Diagrama](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/imagen_2025-03-08_005011209.png)
+#### Visualización del código - Parte 1
 
-##### Microcontrolador PIC18LF4XK22: 
+* Si deseas visualizar el código del programa principal [Haz clic aquí](main_parte1.c)
 
-Es el elemento principal del circuito, encargado de procesar datos y ejecutar instrucciones.
+* Si deseas visualizar el código que contiene las funciones necesarias para configurar y operar el PWM en el PIC [Haz clic aquí](pwm_parte1.c)
 
-##### PICkit 3:  
+* Si deseas visualizar el código que contiene el encabezado con los prototipos de las funciones [Haz clic aquí](pwm_parte1.h)
 
-Se usa para programar el microcontrolador y cargar el código de la aplicación.
+* * Si deseas visualizar el código del programa principal de la parte 1 [Haz clic aquí](main_parte1.c)
 
-##### Cristal de 4 MHz con condensadores de 33pF:
+#### Visualizacion del codigo - Parte 2
 
-Se utiliza para proporcionar una señal de reloj estable al microcontrolador.
+* Si deseas visualizar el código del programa principal [Haz clic aquí](main_parte2.c)
 
-##### Resistencia de 2kΩ, condensador de 100nF y pulsador en el MCLR: 
+* Si deseas visualizar el código que contiene las funciones necesarias para configurar y operar el PWM en el PIC [Haz clic aquí](pwm_parte2.c)
 
-Se implementa un circuito de reset para evitar que el PIC se reinicie accidentalmente.
+* Si deseas visualizar el código que contiene las funciones necesarias para configurar y operar el ADC en el PIC [Haz clic aquí](ADC_parte2.c)
 
-##### Dip Switch: 
-Se usan para asignar el numero de operacion 1 , 2 y la operacion.
+* Si deseas visualizar el código que contiene el encabezado con los prototipos de las funciones del PWM [Haz clic aquí](pwm_parte2.h)
 
-##### pulador que esta en el Rb4:
+* Si deseas visualizar el código que contiene el encabezado con los prototipos de las funciones del ADC [Haz clic aquí](ADC_parte2.h)
 
-Este ayuda guardar el valor asignado en el dip switch.
+#### EXPLICACIÓN CÓDIGO:
 
-##### Leds y resistencias:
+##### PWM_PARTE1.H
 
-Indicadores visuales que representan el estado del sistema o los resultados de alguna de las operaciones.
+* `#include <xc.h>`: Es la librería principal del compilador XC8, la cual proporciona acceso a todos los registros especiales del microcontrolador como TRIS, PORT, LAT, TMR0, PR2, etc.
 
-### MONTAJE
+* `#define _XTAL_FREQ 64000000UL`: Definicion de la frecuencia del oscilador a 64 MHz. `UL` indica que es un número unsigned long.
 
-![Diagrama](https://github.com/Juanes20feb/Micros_Corte1/blob/Alison/imagen_2025-03-08_010035213.png)
+* `#define PWM_OUTPUT_TRIS  TRISC2`: Definición del pin de salida C2 que en este caso se usara para la salida del PWM.
 
- ### CODIGO
+###### Declaración de funciones
 
-Para poder visualizar el codigo [Haz clic aquí](https://github.com/Juanes20feb/Micros_Corte1/blob/main/script.py)
+`void setupPWM(void);`  
+`void setDuty(unsigned char val);`  
+`void setupTimer0(void);`  
 
-#### EXPLICACIÓN PALABRAS RESERVADAS
+Estas líneas son declaraciones de funciones, también conocidas como prototipos, las cuales se implementarán en el archivo pwm_parte1.c. En primer lugar, la función `setupPWM(void)` será la encargada de configurar el módulo PWM. Por otro lado, la función `setDuty(unsigned char val)` se encargará de cambiar el duty cycle, es decir, el ciclo de trabajo. Finalmente, la función `setupTimer0(void)` será la responsable de realizar las interrupciones.
 
-`#include <xc.h>`: Es una librería específica para los microcontroladores PIC. Esta librería contiene los registros y configuraciones necesarias para manejar los periféricos del PIC18F45K22.
+##### PWM_PARTE1.C
 
-`#define _XTAL_FREQ 4000000`: Define la frecuencia del oscilador en 4 MHz. Es necesaria para el uso de la función `__delay_ms()`.
+* `#include "pwm.h"`: Libreria personalizada creada en el cual se definieron funciones tales como `setupPWM()` y `setDuty()`.
 
-`unsigned char`: Palabra clave para declarar una variable de 8 bits. Con esta palabra reservada se declararon 4 variables:
+* `volatile unsigned char duty = 0;`: //Variable global la cual va a definir el ancho que tiene el PWM
 
-`main()`: Es la función principal que se ejecuta al iniciar el programa. En esta funcion se 
+###### Creación de la rutina de interrupciones
 
-`Void()`: Es el encargado de llamar funciones.
+`void __interrupt() ISR(void) {` // Es la función que se ejecuta cuando ocurre una interrupción.  
+    `if (INTCONbits.TMR0IF) {` // Verifica si la interrupción fue generada por el Timer0.  
+        `TMR0 = 3036;` // Reinicia el contador para que vuelva a contar el tiempo para generar otra interrupción en 100ms.                 
+        `duty += 20;` // Aumenta el ciclo de trabajo.                
+        `if (duty > 255) duty = 0;` // Si el ciclo de trabajo sobrepasa 255, se reinicia a 0 el PWM de 8 bits.  
+        `setDuty(duty);` // Actualiza el PWM con el nuevo valor.            
+        `INTCONbits.TMR0IF = 0;` //Limpia la bandera de interrupción.     
+    `}`  
+`}`  
 
-`TRIS`: Registro que determinan si un pin es entrada (1) o salida (0).
+Esta parte del código define una rutina de interrupción que se ejecuta automáticamente cuando Timer0 alcanza un valor que indica que han transcurrido aproximadamente 100 ms. En la rutina, se realiza una verificación para ver si la interrupción fue causada por Timer0, y si es así, el temporizador se recarga con el valor 3036 para mantener el intervalo constante. Luego, la variable duty, que representa el ciclo de trabajo de la señal PWM, aumenta en 20 unidades. Si el valor supera 255 (el límite de PWM de 8 bits), se restablecerá a 0 y comenzará de nuevo. Luego, el valor PWM se actualiza utilizando la función setDuty(duty) para reflejar el nuevo ciclo de trabajo en la señal de salida. Finalmente, cuando Timer0 alcanza nuevamente el tiempo programado, el indicador de interrupción (TMR0IF) se borra para permitir que la rutina se ejecute nuevamente.
 
-`LAT`: Registro que controlan la salida de los pines.
+###### Configuración del PWM
 
-`switch-case`: Evalúa una variable y ejecuta el código del `case` que coincida, usando `break` para evitar que siga ejecutando otros casos. Si no hay coincidencia, se usa `default`.
+`void setupPWM(void) {`  
+    `PWM_OUTPUT_TRIS = 0;`           // Se establece RC2 como salida  
+    `PR2 = 255;`                     // Es el máximo valor del periodo PWM  
+    `CCP1CON = 0b00001100;`          // Modo PWM en CCP1  
+    `CCPR1L = 0;`                    // Se establece que el PWM comienza en 0% duty  
+    `T2CON = 0b00000111;`           
+`}`  
 
-* case 0: F_S(); → Suma.
-* case 1: F_R(); → Resta.
-* case 2: F_A(); → AND.
-* case 3: F_O(); → OR.
-* case 4: F_M(); → Multiplicación.
-* case 5: F_D(); → División.
+En esta parte del código se establece la funcion setupPWM(void) para configurar el módulo PWM del microcontrolador. Además, se establece el pin RC2 como salida. Luego, se asigna el valor máximo (255) al registro PR2, lo que define el periodo del PWM. A continuación, se configura el módulo CCP1 en modo PWM mediante el registro CCP1CON = 0b00001100. El registro CCPR1L se inicializa en 0, lo que significa que el ciclo de trabajo (duty cycle) comienza en 0%, es decir, sin salida activa. Finalmente, el registro T2CON = 0b00000111 habilita el temporizador 2 y configura su prescaler, el cual es necesario para que funcione el PWM, ya que este temporizador determina la frecuencia de la señal.
 
-`__delay_ms()`: Antirebote
+* `void setDuty(unsigned char val) {`
+    `CCPR1L = val;`
+`}` 
 
-### Explicación del código de forma general
+Esta pequeña parte Cambia el valor de CCPR1L, que es el registro que define el ciclo de trabajo del PWM.
 
-El código implementa una ALU en un microcontrolador PIC18F45K22 usando leguaje C. Configura los puertos (`CONF_PUERTOS`), inicializa variables, y sigue una rutina (`RUTINA`) que espera una señal (`FUNCION_ENTER`), lee dos operandos (`LEER_OPERANDO_1` y `LEER_OPERANDO_2`), y selecciona una operación (`LEER_OPERACION`) usando `switch-case`. Según el valor de selector, realiza suma, resta, AND, OR, multiplicación o división. Finalmente, muestra los valores y el resultado en los puertos (`MOSTRAR_RESULTADO`).
+###### Configuración del Timer 
 
-### Conclusiones
-Se concluye que se logró comprender el funcionamiento teórico de una ALU de 4 bits. Sin embargo, por limitaciones de tiempo y dificultades en la interpretación del código, no se pudo verificar completamente su implementación en el microcontrolador.
+`void setupTimer0(void) {`
+    `T0CON = 0b10000111;`         // Timer0 ON, en prescaler 1:256
+    `TMR0 = 3036;`                // Carga inicial para generar 100ms
+    `INTCONbits.TMR0IE = 1;`      // Habilita interrupción por Timer0
+    `INTCONbits.TMR0IF = 0;`      // Limpia la bandera
+    `INTCONbits.GIE = 1;`         // Habilita todas las interrupciones
+`}`
+
+En esta parte del código la función setupTimer0(void) sirve para configurar el temporizador Timer0 y hacer que genere una interrupción cada 100 milisegundos. Primero, se activa el temporizador y se ajusta para que cuente más lento usando una división del reloj (T0CON = 0b10000111). Luego, se le da un valor inicial (TMR0 = 3036) para que, al llegar al límite, se cumpla el tiempo deseado. Después, se habilita la interrupción del Timer0 (TMR0IE = 1) y se limpia una bandera (TMR0IF = 0) que indica si ya ocurrió una interrupción. Por último, se activan todas las interrupciones del sistema con GIE = 1, lo que permite que el programa pueda reaccionar cuando se cumplan los 100 milisegundos.
+
+##### Main_parte1.C
+
+###### Configuraciones del pic
+
+* `#pragma config FOSC = INTIO67`:Indica que se usará el oscilador interno y los pines 6 y 7 estarán disponibles como entradas/salidas digitales.
+* `#pragma config PLLCFG = ON`: Habilita el uso del PLL para aumentar la velocidad del sistema. El Pll signfica Phase-Locked Loop (Bucle de Enganche de Fase), el cual es un circuito electrónico que permite multiplicar la frecuencia de una señal de reloj. 
+* `#pragma config WDTEN = OFF`: Indica desactivar el Watchdog Timer, que es un temporizador de seguridad que podría resetear el sistema si no se reinicia periódicamente.
+
+###### Función main
+
+`void main(void) {`
+    `OSCCON = 0b01110000;`         // Se establece el cscilador interno 16MHz
+    `OSCTUNEbits.PLLEN = 1;`        // Activa el PLL para pasar 16MHz a 64 MHz
+    `setupPWM();`
+    `setupTimer0();`
+    `while (1) {`
+    `}`
+`}`
+
+En esta parte del codigo la La función main se encarga de iniciar el sistema del microcontrolador. Primero configura el oscilador interno a 16 MHz, y luego activa el PLL con `OSCTUNEbits.PLLEN = 1` para multiplicar esa frecuencia por 4, alcanzando así 64 MHz. Después, llama a la función `setupPWM()` para configurar el módulo PWM y a `setupTimer0()` para configurar el temporizador que generará interrupciones periódicas. Finalmente, entra en un bucle infinito `while(1)` que mantiene el programa en ejecución, permitiendo que el funcionamiento del PWM y el temporizador ocurra en segundo plano mediante interrupciones.
+
+## Diagramas de flujo - PARTE 1
+
+### DECLARACIÓN DE VARIABLES
+
+![Diagrama Declaracion de variables](PWM_H.jpeg)
+
+### FUNCIONAMIENTO Y CONFIGURACION PWM
+
+![Diagrama FUNCIONAMIIENTO Y CONFIGURACION PWM](PWM_PARTE1.jpeg)
+
+### FUNCION MAIN
+
+![Diagrama Programa principal](FUNCION_MAIN1.jpeg)
+
+
+## Diagramas de flujo - PARTE 2
+
+### FUNCIONAMIENTO Y CONFIGURACION PWM
+
+![Diagrama FUNCIONAMIIENTO Y CONFIGURACION PWM](CONFIGURACION_PWM2.jpeg)
+
+### FUNCIONAMIENTO Y CONFIGURACION ADC
+
+![Diagrama FUNCIONAMIIENTO Y CONFIGURACION PWM](ADC_C.PNG)
+
+### FUNCION MAIN
+
+![Diagrama Programa principal](FUNCION_MAIN2.jpeg)
+
+## Diagramas obtenidos por el osciloscopio parte 1
+
+### Ciclo de trabajo al 6.247%
+
+![Diagrama 1 - Ciclo de trabajo al 6.247%](scope_5.png)
+
+Para verificar que los datos obtenidos en el osciloscopio concuerdan vamos a realizar el siguiente calculo:
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{Ancho de pulso}}{\text{Periodo}} \right) \times 100 
+$$
+
+Reemplazamos los valores y obtenemos lo soguiente:
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{16.01uS}}{\text{256.27uS}} \right) \times 100 
+$$
+
+$$
+\text{Ciclo de trabajo} = 6.247\%
+$$ 
+
+Al rectificar el resultado obtenido con el osciloscopio, se puede concluir que el ciclo de trabajo se encuentra en estado alto, durante un 6.247% del tiempo total del periodo.
+
+### Ciclo de trabajo al 26.561%
+
+![Diagrama 2 - Ciclo de trabajo al 26.561%](scope_6.png)
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{68.04uS}}{\text{256.17uS}} \right) \times 100 
+$$
+
+$$
+\text{Ciclo de trabajo} = 26.561\%
+$$ 
+
+En este caso el ciclo de trabajo se encuentra en estado alto, durante un 26.561% del tiempo total del periodo.
+
+### Ciclo de trabajo al 51.56%
+
+![Diagrama 3 - Ciclo de trabajo al 51.56%](scope_7.png)
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{132.1uS}}{\text{256.22uS}} \right) \times 100 
+$$
+
+$$
+\text{Ciclo de trabajo} = 51.56\%
+$$ 
+
+En este caso el ciclo de trabajo se encuentra en estado alto, durante un 51.56% del tiempo total del periodo.
+
+### Ciclo de trabajo al 76.563%
+
+![Diagrama 4 - Ciclo de trabajo al 76.563%](scope_8.png)
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{196.16uS}}{\text{256.21uS}} \right) \times 100 
+$$
+
+$$
+\text{Ciclo de trabajo} = 76.563\%
+$$ 
+
+En este caso el ciclo de trabajo se encuentra en estado alto, durante un 76.563% del tiempo total del periodo.
+
+### Ciclo de trabajo al 93.749%
+
+![Diagrama 5 - Ciclo de trabajo al 93.749%](scope_9.png)
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{240.2uS}}{\text{256.22uS}} \right) \times 100 
+$$
+
+$$
+\text{Ciclo de trabajo} = 93.749\%
+$$ 
+
+En este caso el ciclo de trabajo se encuentra en estado alto, durante un 93.749% del tiempo total del periodo.
+
+## Diagramas obtenidos por el osciloscopio parte 2
+
+### Ciclo de trabajo al 20% aproximadamente
+
+![Diagrama 1 - Ciclo de trabajo al 20% aproximadamente](scope_0.png)
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{55.01uS}}{\text{256.09uS}} \right) \times 100 
+$$
+
+$$
+\text{Ciclo de trabajo} = 21.48\%
+$$ 
+
+En este caso el ciclo de trabajo se encuentra en estado alto, durante un 21.48% del tiempo total del periodo.
+
+### Ciclo de trabajo al 40% aproximadamente
+
+![Diagrama 2 - Ciclo de trabajo al 40% aproximadamente](scope_1.png)
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{103.05uS}}{\text{256.14uS}} \right) \times 100 
+$$
+
+$$
+\text{Ciclo de trabajo} = 40.23\%
+$$ 
+
+En este caso el ciclo de trabajo se encuentra en estado alto, durante un 40.23% del tiempo total del periodo.
+
+### Ciclo de trabajo al 60% aproximadamente
+
+![Diagrama 3 - Ciclo de trabajo al 60% aproximadamente](scope_2.png)
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{155.11uS}}{\text{256.18uS}} \right) \times 100 
+$$
+
+$$
+\text{Ciclo de trabajo} = 60.548\%
+$$ 
+
+En este caso el ciclo de trabajo se encuentra en estado alto, durante un 60.548% del tiempo total del periodo.
+
+### Ciclo de trabajo al 80% aproximadamente
+
+![Diagrama 4 - Ciclo de trabajo al 80% aproximadamente](scope_3.png)
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{206.19uS}}{\text{256.25uS}} \right) \times 100 
+$$
+
+$$
+\text{Ciclo de trabajo} = 80.466\%
+$$ 
+
+En este caso el ciclo de trabajo se encuentra en estado alto, durante un 80.466% del tiempo total del periodo.
+
+### Ciclo de trabajo al 100% aproximadamente
+
+![Diagrama 5 - Ciclo de trabajo al 100% aproximadamente](scope_3.png)
+
+$$ 
+\text{Ciclo de trabajo} = \left( \frac{\text{249.22uS}}{\text{256.22uS}} \right) \times 100 
+$$
+
+$$
+\text{Ciclo de trabajo} = 97.265\%
+$$ 
+
+En este caso el ciclo de trabajo se encuentra en estado alto, durante un 97.265% del tiempo total del periodo.
+
+## IMPLEMENTACION PARTE 1
+
+![IMPLEMENTACION PARTE 1](IMPLEMENTACION_1.jpeg)
+
+## IMPLEMENTACION PARTE 2
+
+![IMPLEMENTACION PARTE 2](IMPLEMENTACION_2.png)
+
+## Referencias
+
+[1] [ECCI-Microprocesadores-2025-I](https://github.com/DianaNatali/ECCI-Microprocesadores-2025-I-/blob/main/laboratorios/3_lab03/README.md?plain=1)

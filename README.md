@@ -15,8 +15,6 @@
 
 ## Documentación
 
-## Palabras clave: 
-LM35, PIC18F45K22, LCD, buzzer, temperatura, alarma, simulación, prototipado.
 
 ### Introducción
 
@@ -36,6 +34,32 @@ Diseñar e implementar un sistema de advertencia de temperatura de bajo costo, b
 -Establecer una lógica de control que active el buzzer y el LED cuando la temperatura supere los 40 °C.
 
 -Implementar físicamente el circuito en protoboard para verificar su funcionamiento práctico y compararlo con la simulación.
+
+## Metodología
+
+# Componentes utilizados
+
+Sensor de temperatura LM35: Dispositivo analógico que proporciona una salida lineal proporcional a la temperatura ambiente. Su sensibilidad es de 10 mV por grado Celsius.
+
+Microcontrolador PIC18F45K22: Unidad de control principal del sistema. Se encarga de adquirir la señal analógica del sensor mediante su conversor analógico-digital (ADC), procesarla y tomar decisiones lógicas de salida.
+
+Pantalla LCD 16x2: Módulo de visualización donde se muestra el valor de temperatura en grados Celsius.
+
+Buzzer (zumbador piezoeléctrico) y LED rojo: Actúan como indicadores de alerta. Se activan simultáneamente cuando la temperatura medida supera el umbral de 40 °C.
+
+## Diseño y montaje del sistema
+
+El proceso de desarrollo del sistema se dividió en dos fases:
+
+# Simulación
+
+Se realizó inicialmente un diseño del circuito en el entorno de simulación Proteus, permitiendo validar la lógica del sistema sin necesidad de hardware físico. En primeer monto se uso DS18820 se conectó a una de las entradas analógicas del PIC18F45K22. La señal analógica fue digitalizada utilizando el módulo ADC del microcontrolador y convertida internamente a grados Celsius. El valor resultante se mostró en la pantalla LCD, y si superaba los 40 °C, el microcontrolador activaba una salida digital para encender el buzzer y el LED.
+
+## Implementación física
+
+Tras validar el sistema en simulación, se construyó el circuito en una protoboard. El PIC18F45K22 se ubicó en el centro, conectado a los demás componentes con jumpers. El sensor LM35, posicionado para medir la temperatura ambiente, se enlazó al ADC del microcontrolador.
+
+Una LCD 16x2 externa muestra la temperatura en °C, con un potenciómetro para ajustar el contraste. Un buzzer y un LED rojo, conectados a una salida digital, se activan si la temperatura supera los 40 °C.
 
 
 #### Visualización del código - Parte 1
